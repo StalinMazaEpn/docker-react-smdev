@@ -7,7 +7,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Basic example of React App using Docker.
+          <br/>
+          Edit file <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -18,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <footer>
+        <p>Made by Stalin Maza</p>
+      </footer>
     </div>
   );
 }
