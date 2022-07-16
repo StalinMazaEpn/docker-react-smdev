@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Docker React SMDev
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -38,6 +38,22 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## How to dockerize project
+
+Use this commands to run this app in development mode using docker containers.
+```bash
+# Development build
+docker build -f Dockerfile.dev .
+docker run <containerId>
+```
+
+Use this commands to run this app in production mode using docker containers.
+```bash
+# Production Build
+docker build .
+docker run -p 8080:80 0696abc68fdf
+```
 
 ## Learn More
 
