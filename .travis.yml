@@ -4,7 +4,19 @@ services:
   - docker
 
 before_install:
-  - docker build -t StalinMazaEpn/docker-react-smdev -f Dockerfile.dev .
+  - docker build -t StalinMazaEpn/docker-react-smdev -f Dockerfile.dev . #build image
 
 script:
-  - docker run -e CI=true StalinMazaEpn/docker-react-smdev npm run test
+  - docker run -e CI=true StalinMazaEpn/docker-react-smdev npm run test #execute test with coverage
+
+deploy:
+  provider: elasticbeanstalk #image provider
+  region: "us-west-2" #region of AWS
+  app: "docker-react-smdev" #name of the app in AWS
+  env: "docker-react-env" #name of the environment in AWS
+  bucket_name: "elasctic-us-west-2-1-14144" #bucket name that uses Travis to generate a .zip file will all app files to deploy
+  bucket_path: "docker-react-smdev" # folder of files should be the same as the app name
+  on:
+    branch: main #only execute deploy when detect changes in main branch
+  access_key_id: "$AWS_ACCESS_KEY" #access key provided from the user in AWS
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY" #access secret key provided from the user in AWS

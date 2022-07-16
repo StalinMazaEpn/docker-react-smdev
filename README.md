@@ -54,6 +54,15 @@ Use this commands to run this app in production mode using docker containers.
 docker build .
 docker run -p 8080:80 0696abc68fdf
 ```
+## Using Docker Compose
+Use docker compose in development mode
+```bash
+# Development mode
+docker-compose -f docker-compose-dev.yml up
+docker-compose -f docker-compose-dev.yml up --build
+docker-compose -f docker-compose-dev.yml down
+```
+
 
 ## Learn More
 
